@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pre-Independent 1 | Unit 2 – Class 9</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet" />
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        h1, h2, h3, h4, h5, .font-poppins { font-family: 'Poppins', sans-serif; }
+        .fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .glass-panel { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); }
+        .correct-highlight { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
+        .wrong-highlight { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+        .sample-answer { background: #f0fdf4; border-left: 4px solid #22c55e; }
+        .toast { position: fixed; bottom: 20px; right: 20px; padding: 15px 25px; border-radius: 8px; color: white; font-weight: bold; opacity: 0; transition: opacity 0.3s, transform 0.3s; transform: translateY(20px); pointer-events: none; z-index: 1000; }
+        .toast.show { opacity: 1; transform: translateY(0); }
+        .toast-success { background-color: #10b981; }
+        .toast-error { background-color: #ef4444; }
+        .toast-info { background-color: #3b82f6; }
+        .transition-box { background: linear-gradient(135deg, #eef2ff, #e0e7ff); border-left: 4px solid #6366f1; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; }
+        .transition-box h4 { color: #3730a3; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+        .transition-box p { color: #334155; font-size: 0.9rem; line-height: 1.6; }
+        .instruction-box { background: #fff7ed; border-left: 4px solid #f97316; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; }
+        .instruction-box h4 { color: #9a3412; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .instruction-box ol, .instruction-box ul { color: #334155; font-size: 0.88rem; line-height: 1.7; padding-left: 20px; }
+        
+        .timer-active { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-slate-900 text-white shadow-2xl relative overflow-hidden border-b-4 border-indigo-500">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-y-1/3 -translate-x-1/4"></div>
+        <div class="max-w-7xl mx-auto px-6 py-10 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div class="lg:col-span-2 flex items-center gap-6">
+                    <div class="hidden sm:flex h-20 w-20 bg-white/10 rounded-2xl border border-white/20 items-center justify-center text-4xl shadow-inner backdrop-blur-sm">
+                        🤖
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="bg-indigo-500 text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">Level B1</span>
+                            <span class="text-indigo-300 text-sm font-bold uppercase tracking-widest"><i class="fa-solid fa-microchip mr-2"></i>Pre-Independent 1</span>
+                        </div>
+                        <h1 class="text-3xl md:text-4xl font-black font-poppins tracking-tight mb-2 drop-shadow-md">
+                            Unit 2: Working With Animals
+                        </h1>
+                        <p class="text-slate-300 text-lg font-medium tracking-wide">
+                            <span class="text-indigo-400 mr-2 font-bold">Class 9</span> • AI Jobs & Article Matrix
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800/80 p-6 rounded-2xl backdrop-blur-md border border-slate-700 shadow-xl">
+                    <h2 class="text-lg font-black text-indigo-400 mb-3 flex items-center gap-2 uppercase tracking-wide"><span class="text-xl">🎯</span> Mission</h2>
+                    <ul class="text-sm text-slate-200 space-y-2 font-medium">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Review</strong> 20 extreme animal careers.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Collaborate</strong> to design an AI-generated job ad.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Master</strong> the Matrix of Articles (a/an/the).</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Roleplay</strong> a job interview using hypotheticals.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-indigo-500 mt-1 mr-3"></i> <span><strong>Debate</strong> controversial animal opinions.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex space-x-2 overflow-x-auto py-4 no-scrollbar" id="tab-container">
+                <button onclick="switchTab('tab0')" id="btn-tab0" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 bg-slate-800 text-white shadow-md whitespace-nowrap">0. 🎮 Who Am I?</button>
+                <button onclick="switchTab('tab1')" id="btn-tab1" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">1. 🤖 AI Job Agency</button>
+                <button onclick="switchTab('tab2')" id="btn-tab2" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">2. 🧩 Article Matrix</button>
+                <button onclick="switchTab('tab3')" id="btn-tab3" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">3. 🗣️ The Interview</button>
+                <button onclick="switchTab('tab4')" id="btn-tab4" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">4. 🏁 Wrap-Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+
+        <!-- TAB 0: WARM UP -->
+        <section id="tab0" class="tab-content active fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box">
+                    <h4><i class="fa-solid fa-gamepad"></i> Warm-Up: "Who Am I?" Wildlife Challenge</h4>
+                    <p>Welcome back! Last class we talked about some incredible, bizarre, and common jobs with animals. Let's see how many of the 20 careers and skills you can remember under pressure!</p>
+                </div>
+
+                <div class="instruction-box mb-8">
+                    <h4><i class="fa-solid fa-hand-pointer"></i> Instructions</h4>
+                    <ol class="list-decimal">
+                        <li>Read the job description or skill profile on the screen.</li>
+                        <li>Quickly decide which career matches the description.</li>
+                        <li>Click the correct option before the time runs out! You have 20 rounds.</li>
+                    </ol>
+                </div>
+
+                <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden border-4 border-indigo-500 min-h-[400px]">
+                    <div class="flex justify-between items-center mb-8 border-b border-slate-700 pb-4">
+                        <span class="text-indigo-400 font-bold uppercase tracking-widest text-sm">Round: <span id="wai-round-display" class="text-white">1/20</span></span>
+                        <span class="text-white font-black text-xl bg-slate-800 px-4 py-1 rounded-full border border-slate-600">Score: <span id="wai-score" class="text-emerald-400">0</span></span>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto text-center mb-8" id="wai-game-area">
+                        <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 mb-8 shadow-inner min-h-[160px] flex items-center justify-center">
+                            <p id="wai-statement" class="text-2xl md:text-3xl font-bold text-white leading-relaxed font-poppins">Click Start to test your memory!</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 hidden" id="wai-buttons">
+                            <button onclick="checkWAI(0)" class="bg-white text-indigo-900 font-black py-4 px-6 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
+                            <button onclick="checkWAI(1)" class="bg-white text-indigo-900 font-black py-4 px-6 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
+                            <button onclick="checkWAI(2)" class="bg-white text-indigo-900 font-black py-4 px-6 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
+                        </div>
+
+                        <button onclick="startWAI()" id="wai-start-btn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-black py-4 px-12 rounded-full text-xl shadow-[0_6px_0_#047857] active:translate-y-[6px] active:shadow-none transition-all mt-4">
+                            START GAME
+                        </button>
+                        <button onclick="nextWAI()" id="wai-next-btn" class="hidden mx-auto mt-6 bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 px-8 rounded-full transition shadow-md">Next Round ➡</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 1: AI JOB AGENCY -->
+        <section id="tab1" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box">
+                    <h4><i class="fa-solid fa-robot"></i> The AI Job Agency</h4>
+                    <p>Now that you know the careers, it's your turn to invent one! You will act as an HR team for an exotic wildlife company. Your task is to design a brand-new animal career and use AI to bring it to life.</p>
+                </div>
+
+                <div class="instruction-box mb-8">
+                    <h4><i class="fa-solid fa-users"></i> Group Project Steps</h4>
+                    <ol class="list-decimal text-slate-700">
+                        <li><strong>Brainstorm:</strong> Invent a completely new or highly bizarre animal-related job (e.g., <em>Penguin Sweater Knitter, Dinosaur DNA Researcher, Shark Dentist</em>).</li>
+                        <li><strong>Draft the Ad:</strong> Write down the Job Title, Job Description, Academic Qualifications, and Personal Qualities required.</li>
+                        <li><strong>AI Generation:</strong> Use an AI image generator (like Bing Image Creator, Canva, or ChatGPT) to create a promotional poster for this job opening using the "Prompt Template" below.</li>
+                        <li><strong>Present:</strong> Show your AI poster to the class and pitch your job ad. Let's see who applies!</li>
+                    </ol>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Drafting Area -->
+                    <div class="bg-white rounded-2xl p-6 shadow border border-slate-200">
+                        <h3 class="font-black text-indigo-900 text-xl mb-4 border-b border-slate-100 pb-2">1. Draft Your Ad 📝</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Job Title</label>
+                                <input type="text" class="w-full border-b-2 border-slate-300 outline-none focus:border-indigo-500 py-1 text-lg font-bold text-slate-800" placeholder="e.g., Deep Sea Octopus Interpreter">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Job Description</label>
+                                <textarea class="w-full border border-slate-300 rounded outline-none focus:border-indigo-500 p-2 text-sm text-slate-700 resize-none h-20" placeholder="What does this person do every day?"></textarea>
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Academic Qualifications</label>
+                                <input type="text" class="w-full border-b-2 border-slate-300 outline-none focus:border-indigo-500 py-1 text-sm text-slate-800" placeholder="e.g., Master's degree in Marine Biology">
+                            </div>
+                            <div>
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-widest">Personal Qualities (Skills)</label>
+                                <input type="text" class="w-full border-b-2 border-slate-300 outline-none focus:border-indigo-500 py-1 text-sm text-slate-800" placeholder="e.g., Brave, detail-oriented, patient">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AI Prompt Template -->
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-indigo-50 rounded-2xl p-6 shadow-inner border border-indigo-100">
+                            <h3 class="font-black text-indigo-900 text-lg mb-2 flex items-center gap-2"><span>✨</span> AI Prompt Template</h3>
+                            <p class="text-sm text-slate-600 mb-4">Copy this formula into your AI image generator to get a great poster!</p>
+                            <div class="bg-slate-900 text-emerald-400 font-mono text-sm p-4 rounded-xl shadow relative">
+                                "Create a photorealistic job advertisement poster for a <strong class="text-white">[Insert Job Title]</strong>. The main image should show <strong class="text-white">[Insert Action/Description]</strong>. The mood should be <strong class="text-white">[Exciting / Professional / Adventurous]</strong>. Include text that says 'We are hiring!'."
+                            </div>
+                        </div>
+                        
+                        <details class="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
+                            <summary class="font-bold text-indigo-600 cursor-pointer outline-none">👀 View a Completed Sample</summary>
+                            <div class="mt-4 text-sm text-slate-700 space-y-2 border-l-4 border-indigo-400 pl-3">
+                                <p><strong>Job Title:</strong> Urban Pigeon Relocator</p>
+                                <p><strong>Description:</strong> You will safely capture pigeons in city centers and transport them to beautiful countryside sanctuaries.</p>
+                                <p><strong>Qualifications:</strong> A certificate in Animal Handling.</p>
+                                <p><strong>Qualities:</strong> Extremely fast, patient, and not afraid of heights.</p>
+                                <p><strong>AI Prompt:</strong> "Create a photorealistic job poster for an Urban Pigeon Relocator. The image should show a brave worker gently holding a pigeon on top of a skyscraper. Exciting mood. Text: 'We are hiring!'"</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 2: GRAMMAR (From Class 8) -->
+        <section id="tab2" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box">
+                    <h4><i class="fa-solid fa-cogs"></i> Grammar Core: The Matrix of Articles</h4>
+                    <p>When you present your jobs, you need to use articles correctly. Let's review the massive decision tree from our last class.</p>
+                </div>
+
+                <!-- MASSIVE VISUAL GRAMMAR BOX -->
+                <div class="bg-slate-900 rounded-3xl shadow-2xl border-4 border-slate-800 overflow-hidden mb-12 p-8 text-white relative">
+                    <h3 class="text-3xl font-black text-emerald-400 text-center mb-8">The Article Decision Tree 🌳</h3>
+                    
+                    <div class="flex flex-col items-center">
+                        <!-- Step 1 -->
+                        <div class="bg-slate-800 border-2 border-emerald-500 p-4 rounded-xl text-center w-full max-w-md relative z-10">
+                            <p class="font-bold text-lg mb-1">Is the noun SPECIFIC?</p>
+                            <p class="text-xs text-slate-400">(Do both the speaker and listener know exactly *which one*? Or was it mentioned before?)</p>
+                        </div>
+                        
+                        <!-- Arrows Down -->
+                        <div class="flex w-full max-w-2xl justify-between px-20 -mt-2 mb-2 relative z-0">
+                            <div class="border-l-4 border-b-4 border-slate-600 w-1/2 h-10 rounded-bl-xl border-dashed"></div>
+                            <div class="border-r-4 border-b-4 border-slate-600 w-1/2 h-10 rounded-br-xl border-dashed"></div>
+                        </div>
+                        <div class="flex w-full max-w-2xl justify-between px-10 text-sm font-bold text-amber-400">
+                            <span class="bg-slate-900 px-2">YES (Specific)</span>
+                            <span class="bg-slate-900 px-2">NO (General/New)</span>
+                        </div>
+
+                        <div class="flex w-full max-w-4xl justify-between mt-2 gap-8">
+                            <!-- YES Path -->
+                            <div class="flex-1 flex flex-col items-center">
+                                <div class="bg-indigo-600 p-5 rounded-xl text-center shadow-lg border-2 border-indigo-400 w-full mb-4">
+                                    <h4 class="text-4xl font-black mb-2 text-white">THE</h4>
+                                    <p class="text-sm font-medium">Use for specific nouns (Singular OR Plural).</p>
+                                    <p class="text-xs mt-2 bg-indigo-800 p-2 rounded italic">"I saw a dog. <strong class="text-amber-300">The</strong> dog was brown."</p>
+                                    <p class="text-xs mt-1 bg-indigo-800 p-2 rounded italic">"Look at <strong class="text-amber-300">the</strong> sun." (Only one exists)</p>
+                                </div>
+                                
+                                <!-- Pronunciation Tip -->
+                                <div class="bg-slate-800 border border-indigo-500 p-3 rounded w-full">
+                                    <p class="text-xs font-bold text-indigo-300 uppercase tracking-widest mb-1">🗣️ Pronunciation Rule</p>
+                                    <p class="text-xs mb-1">Before Consonant = "thuh" (<span class="text-amber-300">the</span> vet)</p>
+                                    <p class="text-xs">Before Vowel = "thee" (<span class="text-amber-300">the</span> animal)</p>
+                                </div>
+                            </div>
+
+                            <!-- NO Path -->
+                            <div class="flex-1 flex flex-col items-center">
+                                <div class="bg-slate-800 border-2 border-rose-500 p-4 rounded-xl text-center w-full mb-4">
+                                    <p class="font-bold text-lg mb-1">Is it Singular or Plural?</p>
+                                </div>
+                                
+                                <div class="flex gap-4 w-full">
+                                    <!-- Singular -->
+                                    <div class="bg-emerald-600 p-4 rounded-xl text-center shadow-lg border-2 border-emerald-400 flex-1">
+                                        <p class="text-xs font-bold text-emerald-200 mb-1 uppercase tracking-wider">Singular</p>
+                                        <h4 class="text-3xl font-black mb-2 text-white">A / AN</h4>
+                                        <p class="text-xs bg-emerald-800 p-2 rounded italic">"I want to be <strong class="text-amber-300">a</strong> vet."</p>
+                                        <p class="text-xs mt-1 bg-emerald-800 p-2 rounded italic">"He is <strong class="text-amber-300">an</strong> expert."</p>
+                                    </div>
+                                    <!-- Plural -->
+                                    <div class="bg-rose-600 p-4 rounded-xl text-center shadow-lg border-2 border-rose-400 flex-1">
+                                        <p class="text-xs font-bold text-rose-200 mb-1 uppercase tracking-wider">Plural / Uncountable</p>
+                                        <h4 class="text-2xl font-black mb-2 text-white">No Article (X)</h4>
+                                        <p class="text-xs bg-rose-800 p-2 rounded italic">"I love <strong class="text-amber-300">[X]</strong> dogs."</p>
+                                        <p class="text-xs mt-1 bg-rose-800 p-2 rounded italic">"<strong class="text-amber-300">[X]</strong> Water is important."</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercise 1: The Article Drop (10 items) -->
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 mt-12"><i class="fa-solid fa-fill-drip text-emerald-500"></i> Practice 1: The Article Drop</h3>
+                
+                <div class="instruction-box">
+                    <h4>Instructions</h4>
+                    <p class="text-sm">Complete the text about animal trainers. Choose A, AN, THE, or X (No Article) for each blank.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl shadow border border-slate-200 mb-6 flex justify-between items-center max-w-sm mx-auto">
+                    <span class="font-bold text-slate-700">Drop Score</span>
+                    <span id="gram1-score" class="font-black text-2xl text-emerald-600">0 / 10</span>
+                </div>
+
+                <div class="bg-slate-50 p-6 md:p-8 rounded-xl border border-slate-200 mb-12 shadow-inner font-serif text-slate-800 leading-loose text-lg">
+                    When <select id="dd-a1" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">the</option><option value="c">a</option><option value="w">x</option></select> 
+                    director needs <select id="dd-a2" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">a</option><option value="c">an</option><option value="w">the</option></select> 
+                    animal for a movie, they turn to <select id="dd-a3" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">a</option><option value="c">an</option><option value="w">x</option></select> 
+                    animal trainer. <select id="dd-a4" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">An</option><option value="w">X</option><option value="c">The</option></select> 
+                    animal trainer then provides a trained animal to do whatever <select id="dd-a5" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="c">the</option><option value="w">a</option><option value="w">x</option></select> 
+                    director wants them to do. But what does it take to become <select id="dd-a6" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">the</option><option value="c">an</option><option value="w">a</option></select> 
+                    animal trainer? Of course, you need to enjoy working with <select id="dd-a7" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">the</option><option value="w">a</option><option value="c">X</option></select> 
+                    animals. More than that, though, you have to be interested in <select id="dd-a8" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="c">X</option><option value="w">the</option><option value="w">an</option></select> 
+                    animal behavior. <select id="dd-a9" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">X</option><option value="w">A</option><option value="c">The</option></select> 
+                    sun is hot when working outside, so wear <select id="dd-a10" class="mx-1 border border-emerald-300 rounded bg-white p-1 text-emerald-700 font-bold font-sans text-base outline-none focus:ring-2 focus:ring-emerald-400"><option value="">---</option><option value="w">X</option><option value="c">a</option><option value="w">the</option></select> 
+                    hat!
+                    
+                    <div class="mt-6 text-center">
+                        <button onclick="checkArticleDrop()" class="bg-emerald-600 text-white font-bold px-8 py-2 rounded-full hover:bg-emerald-500 transition shadow-md font-sans">Check Text</button>
+                    </div>
+                </div>
+
+                <!-- Exercise 2: Error Hunter (10 items) -->
+                <h3 class="text-2xl font-bold text-slate-800 mb-4 mt-12"><i class="fa-solid fa-magnifying-glass text-rose-500"></i> Practice 2: The Error Hunter</h3>
+                
+                <div class="instruction-box">
+                    <h4>Instructions</h4>
+                    <p class="text-sm">Read the 10 sentences below. Decide if the article usage is Correct or Incorrect.</p>
+                </div>
+
+                <div class="bg-white p-4 rounded-2xl shadow border border-slate-200 mb-6 flex justify-between items-center max-w-sm mx-auto">
+                    <span class="font-bold text-slate-700">Error Hunter Score</span>
+                    <span id="ex2-score" class="font-black text-2xl text-rose-600">0 / 10</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12" id="ex2-container">
+                    <!-- Populated via JS -->
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 3: SPEAKING -->
+        <section id="tab3" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl">
+                <div class="transition-box">
+                    <h4><i class="fa-solid fa-comments"></i> The Job Interview</h4>
+                    <p>It's time to put everything together. We are going to hold a "Job Fair" for the bizarre animal careers you just invented in Tab 1!</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <!-- The Template -->
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200">
+                        <h3 class="font-black text-indigo-900 text-xl mb-4 border-b border-slate-100 pb-2">Job Interview Prompts 🎙️</h3>
+                        
+                        <div class="space-y-4 text-sm text-slate-700 font-medium mb-6">
+                            <p class="flex items-start gap-3"><span class="text-indigo-500 font-bold">1.</span> <strong>Choose a Job:</strong> Use the AI Job your group invented in Tab 1.</p>
+                            <p class="flex items-start gap-3"><span class="text-indigo-500 font-bold">2.</span> <strong>Partner A (Interviewer):</strong> Ask questions about why they want the job and what skills they have.</p>
+                            <p class="flex items-start gap-3"><span class="text-indigo-500 font-bold">3.</span> <strong>Partner B (Candidate):</strong> Answer using the hypothetical phrases and correct articles!</p>
+                        </div>
+
+                        <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+                            <h4 class="font-bold text-indigo-800 mb-2 flex items-center gap-2"><span>💬</span> Confident Communicator</h4>
+                            <p class="text-xs text-slate-600 mb-2">Use these phrases for hypothetical situations:</p>
+                            <ul class="text-sm font-bold text-indigo-900 space-y-1">
+                                <li>"If I were going to work with animals, I would..."</li>
+                                <li>"The animals I'd like to work with are..."</li>
+                                <li>"I think I would be a good [X] because..."</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Scaffolding & Timer -->
+                    <div class="flex flex-col justify-between">
+                        <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 mb-6">
+                            <details>
+                                <summary class="cursor-pointer font-black text-emerald-600 text-lg hover:text-emerald-700 flex items-center gap-2">
+                                    <i class="fa-solid fa-eye"></i> View Sample Interview
+                                </summary>
+                                <div class="mt-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm space-y-3">
+                                    <p><strong class="text-indigo-600">Interviewer:</strong> So, why do you want to be an Urban Pigeon Relocator?</p>
+                                    <p><strong class="text-rose-600">Candidate:</strong> Well, <span class="bg-yellow-200 px-1">if I were going to work with animals</span>, I would want to do something active. Taking <span class="bg-yellow-200 px-1">a</span> pigeon out of the city is very rewarding.</p>
+                                    <p><strong class="text-indigo-600">Interviewer:</strong> <span class="bg-yellow-200 px-1">The</span> job is strange. Do you have the right personality?</p>
+                                    <p><strong class="text-rose-600">Candidate:</strong> Yes. I am very brave. I know that working with <span class="bg-yellow-200 px-1">birds</span> (no article!) requires patience.</p>
+                                </div>
+                            </details>
+                        </div>
+
+                        <div class="bg-slate-900 rounded-2xl p-6 text-center shadow-xl text-white border-4 border-emerald-500">
+                            <h3 class="font-bold text-slate-400 uppercase tracking-widest text-sm mb-2">Interview Timer</h3>
+                            <div id="interview-timer-display" class="text-6xl font-black font-mono tracking-tight mb-4 text-emerald-400">06:00</div>
+                            <button onclick="startInterviewTimer()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold py-3 px-8 rounded-full transition-transform active:scale-95 shadow-[0_4px_0_#047857]">
+                                START
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 4: WRAP UP -->
+        <section id="tab4" class="tab-content fade-in">
+            <div class="glass-panel p-8 rounded-3xl text-center max-w-4xl mx-auto">
+                <div class="transition-box text-left">
+                    <h4><i class="fa-solid fa-fire"></i> Wrap-up: Hot Seat Opinions</h4>
+                    <p>Let's finish the class with some highly controversial animal opinions. You must agree or disagree using a Tag Question!</p>
+                </div>
+                
+                <h2 class="text-3xl font-black text-slate-800 mb-6">The 30-Second Hot Seat 🔥</h2>
+                
+                <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden mb-8 border-4 border-rose-500">
+                    <div class="flex justify-between items-center mb-6 border-b border-slate-700 pb-4">
+                        <div class="text-slate-400 font-bold uppercase tracking-wider text-sm">Statement: <span id="debate-round" class="text-white text-lg ml-2">1 / 10</span></div>
+                        <div id="debate-timer" class="text-rose-400 text-3xl font-black font-mono">05:00</div>
+                    </div>
+                    
+                    <div class="relative z-10 min-h-[150px] flex items-center justify-center mb-8">
+                        <p id="debate-text" class="text-2xl md:text-3xl font-bold text-white leading-snug">
+                            Click "Start Debate" to begin the countdown!
+                        </p>
+                    </div>
+
+                    <button onclick="nextDebate()" id="debate-next-btn" class="hidden bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-black text-xl py-4 px-12 rounded-xl shadow-[0_6px_0_#047857] active:translate-y-[6px] active:shadow-none transition-all mx-auto">
+                        NEXT OPINION ➡
+                    </button>
+
+                    <button onclick="startDebate()" id="debate-start-btn" class="bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-4 px-12 rounded-full text-xl shadow-[0_6px_0_#3730a3] active:translate-y-[6px] active:shadow-none transition-all mt-4">
+                        START DEBATE
+                    </button>
+                </div>
+
+                <div class="instruction-box text-left mx-auto max-w-2xl">
+                    <h4><i class="fa-solid fa-bolt"></i> The Rules</h4>
+                    <ul class="list-disc">
+                        <li>The teacher calls your name.</li>
+                        <li>Read the controversial opinion aloud.</li>
+                        <li>Shout your reaction using a tag question! (e.g., <strong class="text-rose-600">"I disagree! Cats aren't better than dogs, are they?"</strong>).</li>
+                        <li>Click next. Finish all 10 before the clock runs out!</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="toast" class="toast"></div>
+
+    <script>
+        // --- Core Functions ---
+        function switchTab(tabId) {
+            try {
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                const tabs = ['tab0', 'tab1', 'tab2', 'tab3', 'tab4'];
+                tabs.forEach(id => {
+                    const btn = document.getElementById(`btn-${id}`);
+                    if (btn) btn.className = "px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap";
+                });
+                const target = document.getElementById(tabId);
+                if (target) target.classList.add('active');
+                const activeBtn = document.getElementById(`btn-${tabId}`);
+                if (activeBtn) activeBtn.className = "px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 bg-slate-800 text-white shadow-md whitespace-nowrap";
+            } catch (e) { console.log('switchTab error:', e); }
+        }
+
+        function showToast(msg, type = 'success') {
+            try {
+                const toast = document.getElementById('toast');
+                toast.textContent = msg;
+                toast.className = `toast toast-${type} show`;
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            } catch (e) { console.log(e); }
+        }
+
+        // --- Tab 0 Warmup: Who Am I? (20 items) ---
+        const waiData = [
+            { q: "I study animals that live in the ocean. I need a degree in biology.", opts: ["Aquarist", "Marine Biologist", "Ornithologist"], a: 1, exp: "Marine Biologists study sea life!" },
+            { q: "I safely extract venom from dangerous reptiles to make antivenom.", opts: ["Snake Milker", "Zookeeper", "Veterinarian"], a: 0, exp: "Snake Milkers have a very dangerous job!" },
+            { q: "I train giant African pouched rats to sniff out landmines.", opts: ["HeroRAT Handler", "Pest Control", "Animal Behaviorist"], a: 0, exp: "HeroRAT Handlers use clicker training for rats." },
+            { q: "I specialize in the medical care and surgery of animals.", opts: ["Groomer", "Veterinary Tech", "Veterinarian"], a: 2, exp: "Veterinarians are animal doctors." },
+            { q: "I am a scientist who studies the behavior, physiology, and classification of animals.", opts: ["Zoologist", "Breeder", "Park Ranger"], a: 0, exp: "Zoologists study all aspects of animal life." },
+            { q: "I manage the daily care, feeding, and enrichment of animals in a zoo.", opts: ["Zookeeper", "Pet Sitter", "Wildlife Photographer"], a: 0, exp: "Zookeepers work daily with zoo animals." },
+            { q: "I specialize in capturing images of animals in their natural habitats.", opts: ["Park Ranger", "Wildlife Photographer", "Ornithologist"], a: 1, exp: "Wildlife Photographers need a lot of patience." },
+            { q: "I work with the police or military to train and control working dogs.", opts: ["Groomer", "Dog Handler", "Animal Nutritionist"], a: 1, exp: "Dog Handlers work closely with K-9 units." },
+            { q: "I carefully select and mate animals to produce specific traits or pedigrees.", opts: ["Breeder", "Veterinary Tech", "Aquarist"], a: 0, exp: "Breeders focus on genetics and traits." },
+            { q: "I teach horses to accept riders, jump, or perform in races.", opts: ["Animal Control Officer", "Horse Trainer", "Zoologist"], a: 1, exp: "Horse Trainers break and train horses." },
+            { q: "I wash, cut hair, and clip nails for domestic pets.", opts: ["Groomer", "Veterinarian", "Pet Sitter"], a: 0, exp: "Groomers make pets look beautiful." },
+            { q: "I visit people's homes to feed and walk their animals while they are on vacation.", opts: ["Wildlife Rehabilitator", "Pet Sitter", "Animal Behaviorist"], a: 1, exp: "Pet Sitters take care of pets at home." },
+            { q: "I patrol national parks to protect wildlife and enforce environmental laws.", opts: ["Park Ranger", "Zookeeper", "Marine Biologist"], a: 0, exp: "Park Rangers protect nature reserves." },
+            { q: "I am a specific type of zoologist who only studies birds.", opts: ["Ornithologist", "Aquarist", "Animal Nutritionist"], a: 0, exp: "Ornithologists study birds." },
+            { q: "I maintain the tanks, water quality, and health of fish in large aquariums.", opts: ["Marine Biologist", "Aquarist", "Snake Milker"], a: 1, exp: "Aquarists manage aquatic exhibits." },
+            { q: "I study why animals act the way they do and help owners fix bad pet habits.", opts: ["Animal Behaviorist", "Veterinary Tech", "Breeder"], a: 0, exp: "Animal Behaviorists are like animal psychologists." },
+            { q: "I rescue injured wild animals, nurse them to health, and release them back into nature.", opts: ["Zookeeper", "Wildlife Rehabilitator", "Animal Control Officer"], a: 1, exp: "Rehabilitators help wild animals heal." },
+            { q: "I create specific diets and meal plans for zoo or farm animals.", opts: ["Animal Nutritionist", "Groomer", "HeroRAT Handler"], a: 0, exp: "Nutritionists focus on healthy diets." },
+            { q: "I assist the animal doctor during surgeries and run lab tests.", opts: ["Veterinarian", "Veterinary Tech", "Pet Sitter"], a: 1, exp: "Vet Techs are the nurses of the animal world." },
+            { q: "I respond to calls about dangerous, stray, or abused animals in the city.", opts: ["Animal Control Officer", "Park Ranger", "Dog Handler"], a: 0, exp: "Animal Control Officers manage city animal issues." }
+        ];
+
+        let waiRound = 0;
+        let waiScore = 0;
+        let waiQueue = [];
+        let currentWaiObj = null;
+
+        function startWAI() {
+            waiQueue = [...waiData].sort(() => Math.random() - 0.5);
+            waiScore = 0;
+            waiRound = 1;
+            document.getElementById('wai-score').textContent = waiScore;
+            document.getElementById('wai-start-btn').classList.add('hidden');
+            document.getElementById('wai-buttons').classList.remove('hidden');
+            document.getElementById('wai-buttons').classList.add('grid');
+            nextWAIRound();
+        }
+
+        function nextWAIRound() {
+            if (waiQueue.length === 0) {
+                document.getElementById('wai-statement').textContent = `🎉 Challenge Complete! Final Score: ${waiScore}/20`;
+                document.getElementById('wai-buttons').classList.add('hidden');
+                document.getElementById('wai-next-btn').classList.add('hidden');
+                return;
+            }
+            
+            document.getElementById('wai-round-display').textContent = `${waiRound}/20`;
+            currentWaiObj = waiQueue.pop();
+            document.getElementById('wai-statement').textContent = `"${currentWaiObj.q}"`;
+            
+            const btns = document.getElementById('wai-buttons').querySelectorAll('button');
+            btns.forEach((btn, idx) => {
+                btn.textContent = currentWaiObj.opts[idx];
+                btn.disabled = false;
+                btn.classList.remove('bg-emerald-500', 'bg-rose-500', 'text-white');
+                btn.classList.add('bg-white', 'text-indigo-900');
+            });
+            document.getElementById('wai-next-btn').classList.add('hidden');
+        }
+
+        function checkWAI(guessIdx) {
+            const btns = document.getElementById('wai-buttons').querySelectorAll('button');
+            btns.forEach(b => b.disabled = true);
+            
+            if (guessIdx === currentWaiObj.a) {
+                btns[guessIdx].classList.remove('bg-white', 'text-indigo-900');
+                btns[guessIdx].classList.add('bg-emerald-500', 'text-white');
+                waiScore++;
+                document.getElementById('wai-score').textContent = waiScore;
+                showToast(`Correct! ${currentWaiObj.exp}`, 'success');
+            } else {
+                btns[guessIdx].classList.remove('bg-white', 'text-indigo-900');
+                btns[guessIdx].classList.add('bg-rose-500', 'text-white');
+                btns[currentWaiObj.a].classList.remove('bg-white', 'text-indigo-900');
+                btns[currentWaiObj.a].classList.add('bg-emerald-500', 'text-white');
+                showToast(`Wrong! ${currentWaiObj.exp}`, 'error');
+            }
+            
+            document.getElementById('wai-next-btn').classList.remove('hidden');
+        }
+
+        function nextWAI() {
+            waiRound++;
+            nextWAIRound();
+        }
+
+        // --- Tab 2: Grammar (From Class 8) ---
+        function checkArticleDrop() {
+            const answers = ['c', 'w', 'w', 'c', 'c', 'c', 'c', 'c', 'c', 'c']; 
+            let correctCount = 0;
+            
+            for(let i=1; i<=10; i++) {
+                const select = document.getElementById(`dd-a${i}`);
+                select.classList.remove('text-emerald-700', 'text-green-600', 'text-red-600', 'border-emerald-300', 'border-green-400', 'border-red-400');
+                
+                if(select.value === 'c') {
+                    correctCount++;
+                    select.classList.add('text-green-600', 'border-green-400');
+                } else if (select.value !== '') {
+                    select.classList.add('text-red-600', 'border-red-400');
+                } else {
+                    select.classList.add('text-emerald-700', 'border-emerald-300');
+                }
+            }
+            
+            document.getElementById('gram1-score').textContent = `${correctCount} / 10`;
+            if(correctCount === 10) showToast('✅ Perfect article usage!', 'success');
+            else showToast('❌ Review the rules in the decision tree.', 'error');
+        }
+
+        const ex2Data = [
+            { q: "1. I love the dogs because they are friendly.", correct: false, exp: "Incorrect! We are talking generally about all dogs, so plural nouns take NO article (X)." },
+            { q: "2. The sun is very bright today.", correct: true, exp: "Correct! 'Sun' is specific because there is only one." },
+            { q: "3. My sister wants to be a vet.", correct: true, exp: "Correct! Singular noun mentioned generally uses A/AN." },
+            { q: "4. He works at animal hospital near my house.", correct: false, exp: "Incorrect! It's a singular noun, it needs an article. 'He works at an animal hospital' or 'the animal hospital'." },
+            { q: "5. We need to buy water for the trip.", correct: true, exp: "Correct! Uncountable noun used generally takes NO article (X)." },
+            { q: "6. I saw a dog yesterday. A dog was very big.", correct: false, exp: "Incorrect! The second time we mention it, it becomes specific. 'THE dog was very big'." },
+            { q: "7. She is studying the biology.", correct: false, exp: "Incorrect! Academic subjects are uncountable/general concepts and take NO article (X)." },
+            { q: "8. Look at the birds on that tree!", correct: true, exp: "Correct! We are talking about specific plural birds (the ones on that tree), so we use THE." },
+            { q: "9. To be a marine biologist, you need an degree.", correct: false, exp: "Incorrect! 'Degree' starts with a consonant sound, so it should be 'A degree'." },
+            { q: "10. The snake milkers have dangerous jobs.", correct: false, exp: "Incorrect! Generalizing a plural profession takes NO article. 'Snake milkers have dangerous jobs'." }
+        ];
+
+        let ex2Answered = new Set();
+        let ex2Score = 0;
+
+        function initEx2() {
+            const container = document.getElementById('ex2-container');
+            ex2Data.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-rose-50 p-4 rounded-xl border border-rose-200";
+                card.innerHTML = `
+                    <p class="font-medium text-slate-800 mb-3">${item.q}</p>
+                    <div class="flex gap-2" id="ex2-btns-${index}">
+                        <button onclick="checkEx2(${index}, true)" class="flex-1 bg-white border border-rose-300 py-2 rounded font-bold text-sm text-slate-600 hover:bg-green-50">Correct</button>
+                        <button onclick="checkEx2(${index}, false)" class="flex-1 bg-white border border-rose-300 py-2 rounded font-bold text-sm text-slate-600 hover:bg-red-50">Incorrect</button>
+                    </div>
+                    <p id="ex2-exp-${index}" class="text-xs font-semibold mt-2 hidden"></p>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function checkEx2(index, guessedCorrect) {
+            if (ex2Answered.has(index)) return;
+            ex2Answered.add(index);
+            
+            const item = ex2Data[index];
+            const btns = document.getElementById(`ex2-btns-${index}`).querySelectorAll('button');
+            const exp = document.getElementById(`ex2-exp-${index}`);
+            
+            exp.classList.remove('hidden');
+            exp.textContent = item.exp;
+
+            if (guessedCorrect === item.correct) {
+                btns[guessedCorrect ? 0 : 1].classList.add('correct-highlight');
+                exp.classList.add('text-emerald-600');
+                ex2Score++;
+                document.getElementById('ex2-score').textContent = `${ex2Score} / 10`;
+            } else {
+                btns[guessedCorrect ? 0 : 1].classList.add('wrong-highlight');
+                btns[item.correct ? 0 : 1].classList.add('correct-highlight');
+                exp.classList.add('text-rose-600');
+            }
+        }
+
+        // --- Tab 3: Timer ---
+        let interviewTimer = null;
+        function startInterviewTimer() {
+            if (interviewTimer) clearInterval(interviewTimer);
+            let t = 360; // 6 mins
+            const el = document.getElementById('interview-timer-display');
+            el.classList.remove('text-rose-500');
+            el.classList.add('timer-active');
+            
+            interviewTimer = setInterval(() => {
+                t--;
+                const m = Math.floor(t / 60);
+                const s = t % 60;
+                el.textContent = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+                if (t <= 60) el.classList.add('text-rose-500');
+                if (t <= 0) {
+                    clearInterval(interviewTimer);
+                    el.textContent = "00:00";
+                    el.classList.remove('timer-active');
+                    showToast('⏰ Time is up!', 'info');
+                }
+            }, 1000);
+        }
+
+        // --- Tab 4: Speed Debate ---
+        const debateData = [
+            "Zoos are cruel and should be completely illegal.",
+            "Cats make much better pets than dogs.",
+            "Humans should stop eating meat completely.",
+            "Animal testing for medicine is completely necessary.",
+            "Keeping birds in cages is a terrible thing to do.",
+            "Owning exotic animals like tigers should be a crime.",
+            "Hunting for sport is a normal human instinct.",
+            "Animals have the same emotions as human beings.",
+            "It is okay to use animals for entertainment (circuses, shows).",
+            "We should spend more money saving animals than exploring space."
+        ];
+        
+        let debateRound = 0;
+        let debateTimer = null;
+        
+        function startDebate() {
+            debateRound = 0;
+            document.getElementById('debate-start-btn').classList.add('hidden');
+            document.getElementById('debate-next-btn').classList.remove('hidden');
+            
+            if (debateTimer) clearInterval(debateTimer);
+            let t = 300;
+            const el = document.getElementById('debate-timer');
+            
+            debateTimer = setInterval(() => {
+                t--;
+                const m = Math.floor(t / 60);
+                const s = t % 60;
+                el.textContent = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+                if (t <= 0) {
+                    clearInterval(debateTimer);
+                    endDebate();
+                }
+            }, 1000);
+            
+            loadDebateStatement();
+        }
+
+        function loadDebateStatement() {
+            if (debateRound >= debateData.length) {
+                endDebate();
+                return;
+            }
+            document.getElementById('debate-round').textContent = `${debateRound + 1} / 10`;
+            document.getElementById('debate-text').textContent = `"${debateData[debateRound]}"`;
+        }
+        
+        function nextDebate() {
+            debateRound++;
+            loadDebateStatement();
+        }
+        
+        function endDebate() {
+            if (debateTimer) clearInterval(debateTimer);
+            document.getElementById('debate-next-btn').classList.add('hidden');
+            document.getElementById('debate-text').textContent = "Debate Finished! Great arguments.";
+        }
+
+        // --- Init ---
+        window.onload = function() {
+            try { initEx2(); } catch (e) { console.log('Ex2 init error:', e); }
+            switchTab('tab0');
+        };
+    </script>
+</body>
+</html>
+```eof
