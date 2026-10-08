@@ -10,34 +10,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet" />
 
     <style>
+        /* STREAMING_CHUNK: Configuring CSS Variables and Base Styles */
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
         h1, h2, h3, h4, h5, .font-poppins { font-family: 'Poppins', sans-serif; }
         .fade-in { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+        
         .tab-content { display: none; }
         .tab-content.active { display: block; }
+        
         .glass-panel { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.5); box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08); }
         .correct-highlight { background-color: #dcfce7 !important; border-color: #22c55e !important; color: #166534 !important; }
         .wrong-highlight { background-color: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
-        .sample-answer { background: #f0fdf4; border-left: 4px solid #22c55e; }
+        
         .toast { position: fixed; bottom: 20px; right: 20px; padding: 15px 25px; border-radius: 8px; color: white; font-weight: bold; opacity: 0; transition: opacity 0.3s, transform 0.3s; transform: translateY(20px); pointer-events: none; z-index: 1000; }
         .toast.show { opacity: 1; transform: translateY(0); }
         .toast-success { background-color: #10b981; }
         .toast-error { background-color: #ef4444; }
         .toast-info { background-color: #3b82f6; }
+        
         .transition-box { background: linear-gradient(135deg, #eef2ff, #e0e7ff); border-left: 4px solid #6366f1; border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; }
         .transition-box h4 { color: #3730a3; font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
         .transition-box p { color: #334155; font-size: 0.9rem; line-height: 1.6; }
+        
         .instruction-box { background: #fff7ed; border-left: 4px solid #f97316; border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; }
         .instruction-box h4 { color: #9a3412; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .instruction-box ol, .instruction-box ul { color: #334155; font-size: 0.88rem; line-height: 1.7; padding-left: 20px; }
         
         .timer-active { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+        
+        /* Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
 
+    <!-- STREAMING_CHUNK: Building the Header and Navigation -->
     <header class="bg-slate-900 text-white shadow-2xl relative overflow-hidden border-b-4 border-indigo-500">
         <div class="absolute top-0 right-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/3"></div>
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-y-1/3 -translate-x-1/4"></div>
@@ -78,7 +88,7 @@
     <nav class="bg-white shadow-sm sticky top-0 z-50 border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex space-x-2 overflow-x-auto py-4 no-scrollbar" id="tab-container">
-                <button onclick="switchTab('tab0')" id="btn-tab0" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 bg-slate-800 text-white shadow-md whitespace-nowrap">0. 🎮 Who Am I?</button>
+                <button onclick="switchTab('tab0')" id="btn-tab0" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 bg-slate-800 text-white shadow-md whitespace-nowrap">0. 📱 JobMatch App</button>
                 <button onclick="switchTab('tab1')" id="btn-tab1" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">1. 🤖 AI Job Agency</button>
                 <button onclick="switchTab('tab2')" id="btn-tab2" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">2. 🧩 Article Matrix</button>
                 <button onclick="switchTab('tab3')" id="btn-tab3" class="px-5 py-2.5 rounded-full font-bold text-sm transition-all duration-300 text-slate-500 hover:bg-slate-100 whitespace-nowrap">3. 🗣️ The Interview</button>
@@ -89,50 +99,100 @@
 
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
 
-        <!-- TAB 0: WARM UP -->
+        <!-- STREAMING_CHUNK: Constructing Tab 0 Warmup (JobMatch Game) -->
         <section id="tab0" class="tab-content active fade-in">
             <div class="glass-panel p-8 rounded-3xl">
                 <div class="transition-box">
-                    <h4><i class="fa-solid fa-gamepad"></i> Warm-Up: "Who Am I?" Wildlife Challenge</h4>
-                    <p>Welcome back! Last class we talked about some incredible, bizarre, and common jobs with animals. Let's see how many of the 20 careers and skills you can remember under pressure!</p>
+                    <h4><i class="fa-solid fa-mobile-screen"></i> Warm-Up: The JobMatch™ App</h4>
+                    <p>Welcome to the HR Department! We need to hire people for 20 extreme animal careers. Read the candidate's skills and decide if they are a MATCH for the job, or if you should REJECT them.</p>
                 </div>
 
                 <div class="instruction-box mb-8">
                     <h4><i class="fa-solid fa-hand-pointer"></i> Instructions</h4>
                     <ol class="list-decimal">
-                        <li>Read the job description or skill profile on the screen.</li>
-                        <li>Quickly decide which career matches the description.</li>
-                        <li>Click the correct option before the time runs out! You have 20 rounds.</li>
+                        <li>Look at the virtual phone screen. Check the <strong>Job Title</strong> at the top.</li>
+                        <li>Read the candidate's <strong>Skills & Bio</strong>.</li>
+                        <li>If they have the right skills, click <strong>HIRE 💚</strong>. If they are a terrible fit, click <strong>REJECT ❌</strong>.</li>
                     </ol>
                 </div>
 
-                <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden border-4 border-indigo-500 min-h-[400px]">
-                    <div class="flex justify-between items-center mb-8 border-b border-slate-700 pb-4">
-                        <span class="text-indigo-400 font-bold uppercase tracking-widest text-sm">Round: <span id="wai-round-display" class="text-white">1/20</span></span>
-                        <span class="text-white font-black text-xl bg-slate-800 px-4 py-1 rounded-full border border-slate-600">Score: <span id="wai-score" class="text-emerald-400">0</span></span>
+                <div class="bg-slate-900 rounded-3xl p-8 shadow-2xl relative overflow-hidden border-4 border-indigo-500 flex flex-col items-center justify-center min-h-[600px]">
+                    
+                    <div class="w-full flex justify-between items-center mb-6 max-w-sm">
+                        <span class="text-indigo-400 font-bold uppercase tracking-widest text-sm">Profile: <span id="jm-round-display" class="text-white">1/20</span></span>
+                        <span class="text-white font-black text-xl bg-slate-800 px-4 py-1 rounded-full border border-slate-600">Score: <span id="jm-score" class="text-emerald-400">0</span></span>
                     </div>
 
-                    <div class="max-w-3xl mx-auto text-center mb-8" id="wai-game-area">
-                        <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 mb-8 shadow-inner min-h-[160px] flex items-center justify-center">
-                            <p id="wai-statement" class="text-2xl md:text-3xl font-bold text-white leading-relaxed font-poppins">Click Start to test your memory!</p>
-                        </div>
-                        
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 hidden" id="wai-buttons">
-                            <button onclick="checkWAI(0)" class="bg-white text-indigo-900 font-black py-4 px-6 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
-                            <button onclick="checkWAI(1)" class="bg-white text-indigo-900 font-black py-4 px-6 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
-                            <button onclick="checkWAI(2)" class="bg-white text-indigo-900 font-black py-4 px-6 rounded-xl shadow-[0_6px_0_#cbd5e1] hover:bg-indigo-50 active:translate-y-[6px] active:shadow-none transition text-lg"></button>
+                    <!-- Virtual Phone Screen -->
+                    <div class="w-full max-w-sm bg-white rounded-[2.5rem] border-8 border-slate-800 h-[500px] shadow-2xl relative overflow-hidden flex flex-col">
+                        <!-- Phone Header -->
+                        <div class="bg-slate-100 px-6 py-2 flex justify-between items-center text-xs font-bold text-slate-500 border-b border-slate-200">
+                            <span>9:41</span>
+                            <div class="flex gap-2">
+                                <i class="fa-solid fa-signal"></i>
+                                <i class="fa-solid fa-wifi"></i>
+                                <i class="fa-solid fa-battery-full"></i>
+                            </div>
                         </div>
 
-                        <button onclick="startWAI()" id="wai-start-btn" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-black py-4 px-12 rounded-full text-xl shadow-[0_6px_0_#047857] active:translate-y-[6px] active:shadow-none transition-all mt-4">
-                            START GAME
-                        </button>
-                        <button onclick="nextWAI()" id="wai-next-btn" class="hidden mx-auto mt-6 bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 px-8 rounded-full transition shadow-md">Next Round ➡</button>
+                        <!-- Start Screen -->
+                        <div id="recruit-start-screen" class="flex-grow flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-indigo-50 to-white">
+                            <i class="fa-solid fa-briefcase text-6xl text-indigo-500 mb-4"></i>
+                            <h3 class="text-3xl font-black text-indigo-900 mb-2">JobMatch™</h3>
+                            <p class="text-slate-500 mb-8 font-medium">Find the perfect candidate for the wildest jobs.</p>
+                            <button onclick="startRecruiterGame()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-black py-4 px-10 rounded-full text-lg shadow-[0_6px_0_#3730a3] active:translate-y-[6px] active:shadow-none transition-all w-full">
+                                START SWIPING
+                            </button>
+                        </div>
+
+                        <!-- Game Screen -->
+                        <div id="recruit-game-screen" class="flex-grow flex flex-col hidden relative">
+                            <!-- Job Banner -->
+                            <div class="bg-indigo-600 text-white text-center py-3 shadow-md z-10">
+                                <p class="text-xs font-bold uppercase tracking-widest text-indigo-200">Applying For:</p>
+                                <h4 id="jm-job-title" class="text-xl font-black">Loading...</h4>
+                            </div>
+                            
+                            <!-- Candidate Profile -->
+                            <div class="flex-grow p-6 flex flex-col items-center text-center bg-slate-50 relative">
+                                <!-- Feedback Overlay -->
+                                <div id="jm-feedback-overlay" class="absolute inset-0 z-20 flex items-center justify-center text-5xl font-black hidden bg-white/80 backdrop-blur-sm rounded-xl m-4 border-4">
+                                    MATCH!
+                                </div>
+
+                                <div id="jm-emoji" class="text-7xl bg-white w-24 h-24 rounded-full flex items-center justify-center shadow-lg border-4 border-indigo-100 mb-4">
+                                    🧑‍💼
+                                </div>
+                                <h5 class="font-bold text-slate-800 text-lg mb-1">Candidate Profile</h5>
+                                <div class="w-10 h-1 bg-indigo-500 rounded mb-4"></div>
+                                <p id="jm-bio" class="text-slate-600 font-medium italic text-sm bg-white p-4 rounded-xl shadow-sm border border-slate-200 w-full text-left leading-relaxed">
+                                    "Loading bio..."
+                                </p>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="p-6 bg-white border-t border-slate-100 flex justify-center gap-6">
+                                <button onclick="checkRecruit(false)" class="w-16 h-16 rounded-full bg-white border-4 border-rose-100 text-rose-500 text-2xl shadow-lg hover:bg-rose-50 hover:border-rose-200 hover:scale-110 transition-all flex items-center justify-center">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                                <button onclick="checkRecruit(true)" class="w-16 h-16 rounded-full bg-white border-4 border-emerald-100 text-emerald-500 text-2xl shadow-lg hover:bg-emerald-50 hover:border-emerald-200 hover:scale-110 transition-all flex items-center justify-center">
+                                    <i class="fa-solid fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- End Screen -->
+                        <div id="recruit-end-screen" class="flex-grow flex flex-col items-center justify-center p-6 text-center bg-emerald-50 hidden">
+                            <span class="text-6xl mb-4">🏆</span>
+                            <h3 class="text-2xl font-black text-emerald-900 mb-2">Inbox Zero!</h3>
+                            <p class="text-slate-600 font-medium">You evaluated all 20 candidates.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 1: AI JOB AGENCY -->
+        <!-- STREAMING_CHUNK: Constructing Tab 1 AI Job Agency -->
         <section id="tab1" class="tab-content fade-in">
             <div class="glass-panel p-8 rounded-3xl">
                 <div class="transition-box">
@@ -200,7 +260,7 @@
             </div>
         </section>
 
-        <!-- TAB 2: GRAMMAR (From Class 8) -->
+        <!-- STREAMING_CHUNK: Constructing Tab 2 Grammar Articles -->
         <section id="tab2" class="tab-content fade-in">
             <div class="glass-panel p-8 rounded-3xl">
                 <div class="transition-box">
@@ -325,7 +385,7 @@
             </div>
         </section>
 
-        <!-- TAB 3: SPEAKING -->
+        <!-- STREAMING_CHUNK: Constructing Tab 3 Speaking -->
         <section id="tab3" class="tab-content fade-in">
             <div class="glass-panel p-8 rounded-3xl">
                 <div class="transition-box">
@@ -384,7 +444,7 @@
             </div>
         </section>
 
-        <!-- TAB 4: WRAP UP -->
+        <!-- STREAMING_CHUNK: Constructing Tab 4 Wrap Up -->
         <section id="tab4" class="tab-content fade-in">
             <div class="glass-panel p-8 rounded-3xl text-center max-w-4xl mx-auto">
                 <div class="transition-box text-left">
@@ -457,95 +517,96 @@
             } catch (e) { console.log(e); }
         }
 
-        // --- Tab 0 Warmup: Who Am I? (20 items) ---
-        const waiData = [
-            { q: "I study animals that live in the ocean. I need a degree in biology.", opts: ["Aquarist", "Marine Biologist", "Ornithologist"], a: 1, exp: "Marine Biologists study sea life!" },
-            { q: "I safely extract venom from dangerous reptiles to make antivenom.", opts: ["Snake Milker", "Zookeeper", "Veterinarian"], a: 0, exp: "Snake Milkers have a very dangerous job!" },
-            { q: "I train giant African pouched rats to sniff out landmines.", opts: ["HeroRAT Handler", "Pest Control", "Animal Behaviorist"], a: 0, exp: "HeroRAT Handlers use clicker training for rats." },
-            { q: "I specialize in the medical care and surgery of animals.", opts: ["Groomer", "Veterinary Tech", "Veterinarian"], a: 2, exp: "Veterinarians are animal doctors." },
-            { q: "I am a scientist who studies the behavior, physiology, and classification of animals.", opts: ["Zoologist", "Breeder", "Park Ranger"], a: 0, exp: "Zoologists study all aspects of animal life." },
-            { q: "I manage the daily care, feeding, and enrichment of animals in a zoo.", opts: ["Zookeeper", "Pet Sitter", "Wildlife Photographer"], a: 0, exp: "Zookeepers work daily with zoo animals." },
-            { q: "I specialize in capturing images of animals in their natural habitats.", opts: ["Park Ranger", "Wildlife Photographer", "Ornithologist"], a: 1, exp: "Wildlife Photographers need a lot of patience." },
-            { q: "I work with the police or military to train and control working dogs.", opts: ["Groomer", "Dog Handler", "Animal Nutritionist"], a: 1, exp: "Dog Handlers work closely with K-9 units." },
-            { q: "I carefully select and mate animals to produce specific traits or pedigrees.", opts: ["Breeder", "Veterinary Tech", "Aquarist"], a: 0, exp: "Breeders focus on genetics and traits." },
-            { q: "I teach horses to accept riders, jump, or perform in races.", opts: ["Animal Control Officer", "Horse Trainer", "Zoologist"], a: 1, exp: "Horse Trainers break and train horses." },
-            { q: "I wash, cut hair, and clip nails for domestic pets.", opts: ["Groomer", "Veterinarian", "Pet Sitter"], a: 0, exp: "Groomers make pets look beautiful." },
-            { q: "I visit people's homes to feed and walk their animals while they are on vacation.", opts: ["Wildlife Rehabilitator", "Pet Sitter", "Animal Behaviorist"], a: 1, exp: "Pet Sitters take care of pets at home." },
-            { q: "I patrol national parks to protect wildlife and enforce environmental laws.", opts: ["Park Ranger", "Zookeeper", "Marine Biologist"], a: 0, exp: "Park Rangers protect nature reserves." },
-            { q: "I am a specific type of zoologist who only studies birds.", opts: ["Ornithologist", "Aquarist", "Animal Nutritionist"], a: 0, exp: "Ornithologists study birds." },
-            { q: "I maintain the tanks, water quality, and health of fish in large aquariums.", opts: ["Marine Biologist", "Aquarist", "Snake Milker"], a: 1, exp: "Aquarists manage aquatic exhibits." },
-            { q: "I study why animals act the way they do and help owners fix bad pet habits.", opts: ["Animal Behaviorist", "Veterinary Tech", "Breeder"], a: 0, exp: "Animal Behaviorists are like animal psychologists." },
-            { q: "I rescue injured wild animals, nurse them to health, and release them back into nature.", opts: ["Zookeeper", "Wildlife Rehabilitator", "Animal Control Officer"], a: 1, exp: "Rehabilitators help wild animals heal." },
-            { q: "I create specific diets and meal plans for zoo or farm animals.", opts: ["Animal Nutritionist", "Groomer", "HeroRAT Handler"], a: 0, exp: "Nutritionists focus on healthy diets." },
-            { q: "I assist the animal doctor during surgeries and run lab tests.", opts: ["Veterinarian", "Veterinary Tech", "Pet Sitter"], a: 1, exp: "Vet Techs are the nurses of the animal world." },
-            { q: "I respond to calls about dangerous, stray, or abused animals in the city.", opts: ["Animal Control Officer", "Park Ranger", "Dog Handler"], a: 0, exp: "Animal Control Officers manage city animal issues." }
+        // --- STREAMING_CHUNK:Initializing Tab 0 Warmup (Recruiter App) ---
+        const recruiterData = [
+            { job: "Aquarist", emoji: "👩‍🔬", bio: "I have a degree in marine biology and love maintaining large fish tanks and checking water quality.", match: true, exp: "Aquarists maintain tanks!" },
+            { job: "Wildlife Photographer", emoji: "👨‍🏫", bio: "I love working indoors in a lab and writing long academic papers about animal cells.", match: false, exp: "Photographers work outdoors!" },
+            { job: "Snake Milker", emoji: "🥷", bio: "I am extremely brave, have steady hands, and want to extract venom to help make antivenom.", match: true, exp: "Perfect skills for a milker." },
+            { job: "Pet Sitter", emoji: "👨‍⚕️", bio: "I have a PhD in veterinary medicine and want to perform complex surgeries on exotic animals.", match: false, exp: "That's a Veterinarian!" },
+            { job: "HeroRAT Handler", emoji: "🕵️‍♀️", bio: "I am observant and patient. I use clicker training to teach giant rats to find landmines.", match: true, exp: "Exactly what a HeroRAT handler does." },
+            { job: "Park Ranger", emoji: "💇‍♂️", bio: "I hate being outside, but I love trimming dog hair and clipping their nails to make them look good.", match: false, exp: "That's a Pet Groomer!" },
+            { job: "Dog Handler", emoji: "👮‍♀️", bio: "I work closely with the police and military to train working K-9 units for security purposes.", match: true, exp: "Spot on for a Dog Handler." },
+            { job: "Ornithologist", emoji: "🦅", bio: "I specialize in studying the behavior, genetics, and habitats of birds all over the world.", match: true, exp: "Ornithologists study birds." },
+            { job: "Zookeeper", emoji: "🦸‍♂️", bio: "I want to rescue injured animals from the wild, heal them, and release them back into nature.", match: false, exp: "That's a Wildlife Rehabilitator!" },
+            { job: "Animal Nutritionist", emoji: "👩‍🍳", bio: "I love chemistry and biology, and my goal is to design the perfect healthy diets for zoo animals.", match: true, exp: "Nutritionists design diets." },
+            { job: "Breeder", emoji: "👨‍💻", bio: "I am afraid of all animals, but I am really good at fixing computers and writing code.", match: false, exp: "Not an animal career!" },
+            { job: "Horse Trainer", emoji: "🤠", bio: "I am very physical and patient. I teach young horses how to accept a rider and run safely.", match: true, exp: "Perfect for a Horse Trainer." },
+            { job: "Marine Biologist", emoji: "🤢", bio: "I love the ocean, but I get seasick easily and refuse to go on boats or swim underwater.", match: false, exp: "Marine Biologists need to be in the water." },
+            { job: "Animal Control Officer", emoji: "🚨", bio: "I am calm under pressure and respond to city emergencies involving stray or dangerous animals.", match: true, exp: "That is the exact job description." },
+            { job: "Animal Behaviorist", emoji: "🧠", bio: "I want to be an animal psychologist, studying why pets have bad habits and helping owners fix them.", match: true, exp: "Behaviorists fix bad habits." },
+            { job: "Groomer", emoji: "📸", bio: "I want to travel to the African Savanna and take pictures of lions for National Geographic.", match: false, exp: "That's a Wildlife Photographer." },
+            { job: "Veterinarian", emoji: "🩺", bio: "I have a medical degree, can perform complex surgeries, and want to save the lives of sick pets.", match: true, exp: "That is a Veterinarian." },
+            { job: "Veterinary Tech", emoji: "💉", bio: "I am highly organized, love drawing blood, running lab tests, and assisting the animal doctor.", match: true, exp: "Vet Techs are the nurses of the animal world." },
+            { job: "Zoologist", emoji: "🚶‍♂️", bio: "I only want to walk people's dogs while they are on vacation in Europe.", match: false, exp: "That's a Pet Sitter." },
+            { job: "Aquarist", emoji: "🐕", bio: "I want to train dogs to jump over fences and win agility competitions.", match: false, exp: "That is a Dog Trainer." }
         ];
 
-        let waiRound = 0;
-        let waiScore = 0;
-        let waiQueue = [];
-        let currentWaiObj = null;
+        let recruiterRound = 0;
+        let recruiterScore = 0;
+        let recruiterQueue = [];
+        let currentRecruit = null;
 
-        function startWAI() {
-            waiQueue = [...waiData].sort(() => Math.random() - 0.5);
-            waiScore = 0;
-            waiRound = 1;
-            document.getElementById('wai-score').textContent = waiScore;
-            document.getElementById('wai-start-btn').classList.add('hidden');
-            document.getElementById('wai-buttons').classList.remove('hidden');
-            document.getElementById('wai-buttons').classList.add('grid');
-            nextWAIRound();
+        function startRecruiterGame() {
+            recruiterQueue = [...recruiterData].sort(() => Math.random() - 0.5);
+            recruiterScore = 0;
+            recruiterRound = 1;
+            document.getElementById('jm-score').textContent = recruiterScore;
+            document.getElementById('recruit-start-screen').classList.add('hidden');
+            document.getElementById('recruit-game-screen').classList.remove('hidden');
+            document.getElementById('recruit-game-screen').classList.add('flex');
+            nextRecruit();
         }
 
-        function nextWAIRound() {
-            if (waiQueue.length === 0) {
-                document.getElementById('wai-statement').textContent = `🎉 Challenge Complete! Final Score: ${waiScore}/20`;
-                document.getElementById('wai-buttons').classList.add('hidden');
-                document.getElementById('wai-next-btn').classList.add('hidden');
+        function nextRecruit() {
+            if (recruiterQueue.length === 0) {
+                document.getElementById('recruit-game-screen').classList.add('hidden');
+                document.getElementById('recruit-game-screen').classList.remove('flex');
+                document.getElementById('recruit-end-screen').classList.remove('hidden');
+                document.getElementById('recruit-end-screen').classList.add('flex');
                 return;
             }
             
-            document.getElementById('wai-round-display').textContent = `${waiRound}/20`;
-            currentWaiObj = waiQueue.pop();
-            document.getElementById('wai-statement').textContent = `"${currentWaiObj.q}"`;
+            document.getElementById('jm-round-display').textContent = `${recruiterRound}/20`;
+            currentRecruit = recruiterQueue.pop();
             
-            const btns = document.getElementById('wai-buttons').querySelectorAll('button');
-            btns.forEach((btn, idx) => {
-                btn.textContent = currentWaiObj.opts[idx];
-                btn.disabled = false;
-                btn.classList.remove('bg-emerald-500', 'bg-rose-500', 'text-white');
-                btn.classList.add('bg-white', 'text-indigo-900');
-            });
-            document.getElementById('wai-next-btn').classList.add('hidden');
+            document.getElementById('jm-job-title').textContent = currentRecruit.job;
+            document.getElementById('jm-emoji').textContent = currentRecruit.emoji;
+            document.getElementById('jm-bio').textContent = `"${currentRecruit.bio}"`;
+            
+            const overlay = document.getElementById('jm-feedback-overlay');
+            overlay.classList.add('hidden');
+            overlay.classList.remove('text-emerald-500', 'border-emerald-500', 'text-rose-500', 'border-rose-500');
+            
+            // Enable buttons
+            const btns = document.getElementById('recruit-game-screen').querySelectorAll('button');
+            btns.forEach(b => b.disabled = false);
         }
 
-        function checkWAI(guessIdx) {
-            const btns = document.getElementById('wai-buttons').querySelectorAll('button');
+        function checkRecruit(guessIsMatch) {
+            // Disable buttons to prevent double click
+            const btns = document.getElementById('recruit-game-screen').querySelectorAll('button');
             btns.forEach(b => b.disabled = true);
             
-            if (guessIdx === currentWaiObj.a) {
-                btns[guessIdx].classList.remove('bg-white', 'text-indigo-900');
-                btns[guessIdx].classList.add('bg-emerald-500', 'text-white');
-                waiScore++;
-                document.getElementById('wai-score').textContent = waiScore;
-                showToast(`Correct! ${currentWaiObj.exp}`, 'success');
+            const overlay = document.getElementById('jm-feedback-overlay');
+            overlay.classList.remove('hidden');
+            
+            if (guessIsMatch === currentRecruit.match) {
+                recruiterScore += 10;
+                document.getElementById('jm-score').textContent = recruiterScore;
+                overlay.textContent = "CORRECT!";
+                overlay.classList.add('text-emerald-500', 'border-emerald-500');
+                showToast(`Right! ${currentRecruit.exp}`, 'success');
             } else {
-                btns[guessIdx].classList.remove('bg-white', 'text-indigo-900');
-                btns[guessIdx].classList.add('bg-rose-500', 'text-white');
-                btns[currentWaiObj.a].classList.remove('bg-white', 'text-indigo-900');
-                btns[currentWaiObj.a].classList.add('bg-emerald-500', 'text-white');
-                showToast(`Wrong! ${currentWaiObj.exp}`, 'error');
+                overlay.textContent = "WRONG!";
+                overlay.classList.add('text-rose-500', 'border-rose-500');
+                showToast(`Incorrect! ${currentRecruit.exp}`, 'error');
             }
             
-            document.getElementById('wai-next-btn').classList.remove('hidden');
+            recruiterRound++;
+            setTimeout(nextRecruit, 1200);
         }
 
-        function nextWAI() {
-            waiRound++;
-            nextWAIRound();
-        }
-
-        // --- Tab 2: Grammar (From Class 8) ---
+        // --- STREAMING_CHUNK:Initializing Tab 2 (Grammar) ---
         function checkArticleDrop() {
             const answers = ['c', 'w', 'w', 'c', 'c', 'c', 'c', 'c', 'c', 'c']; 
             let correctCount = 0;
@@ -625,7 +686,7 @@
             }
         }
 
-        // --- Tab 3: Timer ---
+        // --- STREAMING_CHUNK:Initializing Tab 3 (Timer) ---
         let interviewTimer = null;
         function startInterviewTimer() {
             if (interviewTimer) clearInterval(interviewTimer);
@@ -649,7 +710,7 @@
             }, 1000);
         }
 
-        // --- Tab 4: Speed Debate ---
+        // --- STREAMING_CHUNK:Initializing Tab 4 (Speed Debate) ---
         const debateData = [
             "Zoos are cruel and should be completely illegal.",
             "Cats make much better pets than dogs.",
